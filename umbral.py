@@ -1,7 +1,5 @@
-from numpy import array
+from numpy import array, diff, cumsum
 from math import factorial
-from numpy import diff
-from numpy import cumsum
 from sympy import expand
 
 
@@ -31,10 +29,10 @@ def delta_x(sequence, n=1):
 
 def s_sum(seq, n=1, init=0):
     if n <= 0:
-        return seq
+        return seq + init
     if n != 1:
         return s_sum(cumsum(seq), n - 1, init)
-    return cumsum(seq)
+    return cumsum(seq) + init
 
 
 def jackson_difference_fan(sequence, n=1):
